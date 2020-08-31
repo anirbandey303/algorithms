@@ -1,4 +1,4 @@
-## Linked List Data Structutre
+## Linked List Data Structutre (Single Pointer)
 ## Asymptotic computational complexity
 ## indexing O(n)
 ## Insert/Delete at first O(1)
@@ -23,6 +23,7 @@ class LinkedList:
         self.head = node
     
     def print(self):
+        
         if(self.head == None):
             print("LinkedList empty")
             return
@@ -37,7 +38,9 @@ class LinkedList:
     
     #Insert a node in the end of linked list
     def insert_at_end(self,data):
+        
         node = Node(data)
+        
         if(self.head == None):
             self.head = node
             return
@@ -49,14 +52,18 @@ class LinkedList:
     
     #Insert a list of values to linked list
     def insert_list_of_values(self, list_of_data):
+        
         self.head = None
+        
         for i in list_of_data:
             self.insert_at_end(i)
     
     #Count the length of the linked list
     def length(self):
+        
         count = 0
         itr = self.head
+        
         while itr:
             count = count + 1
             itr = itr.next
@@ -64,14 +71,17 @@ class LinkedList:
     
     #Remove the node at the given position
     def remove_at(self,position):
+        
         if(position < 0 or position >= self.length()):
             raise Exception("Invalid index")
+        
         if(position == 0):
             self.head = self.head.next
             return
         
         count = 0
         itr = self.head
+        
         while itr:
             if(count == position-1):
                 itr.next = itr.next.next
@@ -92,16 +102,19 @@ class LinkedList:
         itr = None'''
     
     #Insert a node at the given position
-    def insert_at(self, data, position):
+    def insert_at(self, position, data):
+        
         if(position < 0 or position > self.length()):
             raise Exception("Invalid index")
-        node = Node(data, position)
+        
+        node = Node(data)
+        
         if(position == 0):
-            node.next = self.head
-            self.head = node
+            self.insert_at_first(data) #make use of the insert at begenning function
             return
         count = 0
         itr = self.head
+        
         while(itr):
             if(count == position - 1):
                 node.next = itr.next
@@ -112,11 +125,15 @@ class LinkedList:
 
 if __name__ == '__main__':
     ll = LinkedList()
+    ll.insert_list_of_values([1,2,4,5,6,77,88,544,657])
     #ll.insert_at_first(10)
     #ll.insert_at_first(5)
     #ll.insert_at_end(15)
-    ll.insert_list_of_values([1,2,4,5,6,77,88,544,657])
+    ll.print()
     ll.remove_at(3) #4th poaition in list, since it starts from zero here. So, 5 must be removed
-    ll.insert_at(99,4)
+    ll.print()
+    ll.insert_at(0,99) # index, data inserting 99 at 0 position
+    ll.print()
+    ll.insert_at(3,100) # index, data - inserting 100 at 3 position
     ll.print()
     print("Length of linkedList = ", ll.length())
