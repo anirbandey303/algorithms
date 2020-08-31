@@ -63,9 +63,16 @@ class LinkedList:
         if(position == 0):
             self.head = self.head.next
             return
+        
         count = 0
         itr = self.head
         while itr:
+            if(count == position-1):
+                itr.next = itr.next.next
+                break
+            itr = itr.next
+            count = count + 1
+        '''while itr:
             count = count + 1
             previous = itr
             itr = itr.next
@@ -73,7 +80,8 @@ class LinkedList:
                 break
         
         previous.next = itr.next
-        itr = None
+        itr = None'''
+        
 
 if __name__ == '__main__':
     ll = LinkedList()
@@ -81,6 +89,6 @@ if __name__ == '__main__':
     #ll.insert_at_first(5)
     #ll.insert_at_end(15)
     ll.insert_list_of_values([1,2,4,5,6,77,88,544,657])
-    ll.remove_at(3) #4th poaition in list, since it starts from zero here
+    ll.remove_at(3) #4th poaition in list, since it starts from zero here. So, 5 must be removed
     ll.print()
     print("Length of linkedList = ", ll.length())
