@@ -35,7 +35,7 @@ class Solution:
         return count
 
 #################################################################################
-
+#Different approach
 
 class Solution:
        
