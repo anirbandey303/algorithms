@@ -1,6 +1,6 @@
 # Algorithms 🌟 🌟 🌟
 
-## Collection of all Algorithms
+## Collection of all Algorithms and LeetCode problems
 
 ## Requirements
 
