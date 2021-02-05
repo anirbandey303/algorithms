@@ -1,6 +1,6 @@
 # Algorithms 🌟 🌟 🌟
 
-## Collection of all Algorithms, Data Structures and LeetCode problems
+## Collection of all Algorithms, Data Structures and LeetCode problems for practice
 
 ## Requirements
 
